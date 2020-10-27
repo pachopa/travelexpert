@@ -1,5 +1,7 @@
-function App() {
-  return <div className="App"></div>;
-}
+import React from "react";
+//import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { Home } from "./pages";
 
-export default App;
+export default function App() {
+  return <Home />;
+}
