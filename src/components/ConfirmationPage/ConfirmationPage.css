@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Roboto&display=swap');
+
+.confirmationPage {
+    background: #56CCF2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 555px;
+    text-align: center;
+}
+
+.confimationPage_icon {
+    padding: 10rem 0 .5rem 0;
+}
+
+.confirmationPage_header {
+    color: white;
+    font-family: 'Marck Script', cursive;
+    font-size: 325%;
+    padding: 0 0 .5rem 0
+}
+
+.confirmationPage_id {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 125%;
+    letter-spacing: .065em;
+    margin: 0 0 .2rem 0
+}
+
+.confirmationPage_message {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+    letter-spacing: .03em;
+}
