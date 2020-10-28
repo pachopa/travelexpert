@@ -25,14 +25,14 @@ const TripItem = ({ item, i, ...restProps }) => {
   } = item;
   const classes = useStyles();
   const history = useHistory();
-  const tripURL = packageId;
+  const tripId = packageId;
 
-  const linkToURL = (tripURL) => {
-    history.push(`/trip/${tripURL}`);
+  const linkToURL = (tripId) => {
+    history.push(`/trip/${tripId}`);
   };
 
   return (
-    <CardActionArea onClick={() => linkToURL(tripURL)}>
+    <CardActionArea onClick={() => linkToURL(tripId)}>
       <Card className={classes.root}>
         <CardMedia
           className={classes.media}

@@ -11,8 +11,7 @@ export const getAllTravelPackages = async () => {
 
 export const getTravelPackageByID = async (tripID) => {
   try {
-    const travelPackageByName = await axios.get(`/gettravelpackages/${tripID}`);
-    console.log("travelPackageByName:", travelPackageByName);
+    const travelPackageByName = await axios.get(`/gettravelpackage/${tripID}`);
     return travelPackageByName;
   } catch (e) {
     return e;

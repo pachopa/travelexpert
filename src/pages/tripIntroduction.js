@@ -1,12 +1,11 @@
 import React from "react";
-import { Navbar, Carousel, Footer, TravelItems } from "../components/";
+import { Navbar, ItemIntroduction, Footer } from "../components/";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Carousel />
-      <TravelItems />
+      <ItemIntroduction />
       <Footer />
     </>
   );
