@@ -3,6 +3,12 @@ import {} from "@material-ui/core";
 import { Carousel } from "react-bootstrap";
 import vanImage from "../../images/van.jpg";
 
+// images
+import carribeanImage from "../../images/carribean.jpg";
+import hawaiiImage from "../../images/hawaii.jpg";
+import japanImage from "../../images/japan.jpg";
+import greeceImage from "../../images/greece.jpg";
+
 import useStyles from "./styles";
 
 export default function ControlledCarousel() {
@@ -16,27 +22,52 @@ export default function ControlledCarousel() {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item className={classes.item}>
-        <img className="d-block w-100" src={vanImage} alt="First slide" />
+        <img
+          className="d-block w-100"
+          src={carribeanImage}
+          alt="Carribean cruise"
+        />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Cruise the Carribean</h3>
+          <p>Enjoy a relaxing cruise to a beautiful carribean island.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item className={classes.item}>
-        <img className="d-block w-100" src={vanImage} alt="Second slide" />
 
+      <Carousel.Item className={classes.item}>
+        <img
+          className="d-block w-100"
+          src={hawaiiImage}
+          alt="Hawaiian resort"
+        />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Relax at a Hawaiian Resort</h3>
+          <p>Lounge on the beach at an exclusive Hawaiian resort.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item className={classes.item}>
-        <img className="d-block w-100" src={vanImage} alt="Third slide" />
 
+      <Carousel.Item className={classes.item}>
+        <img
+          className="d-block w-100"
+          src={japanImage}
+          alt="Eco-tour of Asia"
+        />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Experience the Natural Beauty of Asia</h3>
+          <p>Explore the unique flora and fauna of China, Japan and Korea.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item className={classes.item}>
+        <img
+          className="d-block w-100"
+          src={greeceImage}
+          alt="Train tour of Europe"
+        />
+        <Carousel.Caption>
+          <h3>Ride the Rails Through Europe</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Traverse the vast and diverse continent of Europe on their
+            first-class rail system.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
