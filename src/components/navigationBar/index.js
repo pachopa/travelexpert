@@ -9,7 +9,7 @@ const NavigationBar = ({ children }) => {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img src={logo} height="70" width="auto" />
         </Navbar.Brand>
 
@@ -32,7 +32,7 @@ const NavigationBar = ({ children }) => {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#deets">Login</Nav.Link>
+            <Nav.Link href="/signin">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
