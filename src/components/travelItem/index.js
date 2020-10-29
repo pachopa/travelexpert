@@ -12,7 +12,11 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
+import DollarIcon from "@material-ui/icons/AttachMoney";
 import useStyles from "./styles";
+import logo from "../../images/TravelExpertsLogoSmall.png"
+
+import '../../assets/fonts.css';
 
 const TripItem = ({ item, i, ...restProps }) => {
   const {
@@ -36,32 +40,38 @@ const TripItem = ({ item, i, ...restProps }) => {
       <Card key={i} className={classes.root}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/paella.jpg"
-          title="Paella dish"
+          image={logo}
+          title="Travel Experts Logo"
         />
         <CardHeader
           title={pkgName}
-          subheader={`Trip Start Date: ${pkgStartDate}`}
+          className={classes.header}
         />
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography 
+            variant="body2" 
+            color="textSecondary" 
+            component="p"
+            className={classes.description}
+          >
             {pkgDesc}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
+        <CardActions 
+          disableSpacing
+          className={classes.icons}
+        >
           <Typography
-            className={classes.dollarIcon}
+            className={classes.price}
             variant="body2"
-            color="textSecondary"
             component="p"
           >
-            <MonetizationOnOutlinedIcon></MonetizationOnOutlinedIcon>
-            {pkgBasePrice}
+            {`$${pkgBasePrice}.00`}
           </Typography>
-          <IconButton aria-label="add to favorites">
+          <IconButton aria-label="add to favorites" className={classes.socialIcon}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="share">
+          <IconButton aria-label="share" className={classes.socialIcon}>
             <ShareIcon />
           </IconButton>
         </CardActions>

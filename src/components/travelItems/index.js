@@ -3,6 +3,7 @@ import { Grid, Typography } from "@material-ui/core";
 import { getAllTravelPackages } from "../../api";
 import TripItem from "./../travelItem";
 import useStyles from "./styles";
+import '../../assets/fonts.css';
 
 const TripItems = ({ children }) => {
   const [travelItems, setTravelItems] = useState({});
@@ -20,22 +21,25 @@ const TripItems = ({ children }) => {
   return (
     <>
       <Typography className={classes.title} variant="h2" align="center">
-        Package Lists
+        Travel Packages
       </Typography>
       <Grid
         container
         className={classes.cardContainer}
-        alignItems="stretch"
-        spacing={10}
+        alignItems="center"
+        justify="center"
+        spacing={8}
+        xs={12}
       >
         {travelItems.data
           ? travelItems.data.map((item, i) => (
-              <Grid item style={{ display: "flex" }}>
+              <Grid item className={classes.cardGrid}>
                 <TripItem item={item} i={i} />
               </Grid>
             ))
           : null}
       </Grid>
+      <div style={{marginBottom: '5rem'}}></div>
     </>
   );
 };
