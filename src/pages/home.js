@@ -6,9 +6,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      {/* <Carousel />
-      <TravelItems /> */}
-      <ConfirmationPage />
+      <Carousel />
+      <TravelItems />
       <Footer />
     </>
   );

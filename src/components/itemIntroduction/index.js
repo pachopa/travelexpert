@@ -7,11 +7,10 @@ import useStyles from "./styles";
 
 //date-time pickers
 import "date-fns";
-import { Grid, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
@@ -42,40 +41,81 @@ const ItemIntroduction = () => {
   return (
     <>
       <Container className={classes.root}>
-        <Row>
-          <Col xs={12} md={8}>
-            xs=12 md=8
+        <Row className={classes.bookingForm_header}>
+          <Col style={{paddingTop: '1rem'}}>
+            <h1>Book Your Getaway</h1>
           </Col>
-          <Col xs={6} md={4}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Grid container justify="space-around">
-                <KeyboardDatePicker
-                  disableToolbar
-                  variant="inline"
-                  format="MM/dd/yyyy"
-                  margin="normal"
-                  id="date-picker-inline"
-                  label="Date picker inline"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    "aria-label": "change date",
-                  }}
-                />
-                <KeyboardDatePicker
-                  margin="normal"
-                  id="date-picker-dialog"
-                  label="Date picker dialog"
-                  format="MM/dd/yyyy"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    "aria-label": "change date",
-                  }}
-                />
-              </Grid>
-            </MuiPickersUtilsProvider>
-            <Button variant="outline-success">Continue to book</Button>{" "}
+        </Row>
+
+        <Row>
+          <Col>
+            <form>
+              <div className={classes.formControl} >
+                <label for="firstName" style={{marginRight: '2.7rem'}}>First Name:</label>
+                <input type="text" id="firstName" />
+              </div>
+
+              <div className={classes.formControl} >
+                <label for="lastName" style={{marginRight: '2.8rem'}}>Last Name:</label>
+                <input type="text" id="lastName" />
+              </div>
+
+              <div className={classes.formControl}>
+                <label for="email" style={{marginRight: '5.6rem'}}>Email:</label>
+                <input type="email" id="email" />
+              </div>
+
+              <div className={classes.formControl}>
+                <label for="travelPackage" style={{marginRight: '4rem'}}>Package:</label>
+                <input type="text" id="travelPackage" />
+
+              </div>
+
+              <div className={classes.formControl}>
+                <label for="tripType" style={{marginRight: '4rem'}}>Trip Type</label>
+                <select id="tripType">
+                  <option value="B">Business</option>
+                  <option value="G">Group</option>
+                  <option value="L">Leisure</option>
+                </select>
+              </div>
+
+              <div className={classes.formControl}>
+                <label for="startDate" className={classes.departureLabel}>Departure</label>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker
+                    margin="normal"
+                    id="startDate"
+                    className={classes.datePicker}
+                    format="MM/dd/yyyy"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date",
+                    }}
+                  />
+                </MuiPickersUtilsProvider>
+              </div>
+
+              <div className={classes.formControl}>
+                <label for="endDate" className={classes.returnLabel}>Return</label>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker
+                    margin="normal"
+                    id="startDate"
+                    className={classes.datePicker}
+                    format="MM/dd/yyyy"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date",
+                    }}
+                  />
+                </MuiPickersUtilsProvider>
+
+                <Button type="submit" variant="contained" className={classes.bookingButton}>Continue to Book</Button>{" "}
+              </div>
+            </form>
           </Col>
         </Row>
       </Container>
