@@ -19,6 +19,7 @@ const ItemIntroduction = () => {
   const params = useParams();
   const classes = useStyles();
 
+  console.log("travelItem:", travelItem);
   //date-time picker code
   const [selectedDate, setSelectedDate] = useState(
     new Date("2017-08-18T21:11:54")

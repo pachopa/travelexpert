@@ -32,8 +32,8 @@ const TripItem = ({ item, i, ...restProps }) => {
   };
 
   return (
-    <CardActionArea onClick={() => linkToURL(tripId)}>
-      <Card className={classes.root}>
+    <CardActionArea key={i} onClick={() => linkToURL(tripId)}>
+      <Card key={i} className={classes.root}>
         <CardMedia
           className={classes.media}
           image="/static/images/cards/paella.jpg"
