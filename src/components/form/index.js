@@ -41,20 +41,11 @@ export default function Form() {
         history.push("/profile");
       };
 
-      const {
-        customerId,
-        custEmail,
-        custFirstName,
-        custLastName,
-      } = customer[0];
-      const custInfo = { customerId, custEmail, custFirstName, custLastName };
+      localStorage.setItem("USER_INFO", JSON.stringify(customer[0]));
 
-      localStorage.setItem("USER_INFO", JSON.stringify(custInfo));
-
-      console.log("customer[0:", customer[0]);
       if (customer[0]) {
         return (
-          <UserInfoContext.Provider value={custInfo}>
+          <UserInfoContext.Provider value={customer[0]}>
             <ProfileInfo>{linkToHome()}</ProfileInfo>
           </UserInfoContext.Provider>
         );

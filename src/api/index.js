@@ -26,3 +26,15 @@ export const getAllCustomers = async () => {
     return e;
   }
 };
+
+export const postTravelPackage = async (booking) => {
+  try {
+    const postTravelPackage = await axios.post(`/postbooking`).then((res) => {
+      console.log("res:", res);
+      console.log("res.data:", res.data);
+    });
+    return postTravelPackage;
+  } catch (e) {
+    return e;
+  }
+};
