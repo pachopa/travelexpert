@@ -2,15 +2,18 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   root: {
-    maxWidth: "50%",
+    maxWidth: "45%",
+    marginTop: 20,
+    marginBottom: 20,
   },
-  userName: {
+  colHeader: {
     fontSize: 20,
     fontWeight: 700,
   },
   colBorder: {
-    border: "solid",
+    border: "1px solid transparent",
     borderColor: "#b8daff",
     borderRadius: 4,
+    padding: 0,
   },
 }));
