@@ -17,3 +17,12 @@ export const getTravelPackageByID = async (tripID) => {
     return e;
   }
 };
+
+export const getAllCustomers = async () => {
+  try {
+    const getAllCustomers = await axios.get(`/getcustomers`);
+    return getAllCustomers;
+  } catch (e) {
+    return e;
+  }
+};

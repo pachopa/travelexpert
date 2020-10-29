@@ -3,3 +3,5 @@ export { default as Carousel } from "./carousel";
 export { default as Footer } from "./footer";
 export { default as TravelItems } from "./travelItems";
 export { default as ItemIntroduction } from "./itemIntroduction";
+export { default as Form } from "./form";
+export { default as ProfileInfo } from "./profileInfo";
