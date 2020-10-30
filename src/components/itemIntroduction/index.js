@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 // import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
-import { getTravelPackageByID } from "../../api";
+import { getTravelPackageByID, postTravelPackage } from "../../api";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import useStyles from "./styles";
+import axios from "axios";
 
 //date-time pickers
 import "date-fns";
@@ -28,18 +29,10 @@ const ItemIntroduction = () => {
   const [travelItem, setTravelItem] = useState({});
   const params = useParams();
   const classes = useStyles();
+  const [travelerCount, setTravelerCount] = useState("");
+  const [tripType, setTripType] = useState("B");
 
-  //handle input
-  const travelerCountRef = useRef(null);
-
-  //date-time picker code
-  const [selectedDate, setSelectedDate] = useState(
-    new Date("2017-08-18T21:11:54")
-  );
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+  // const  = useRef(initialValue)
 
   const currentUser = localStorage.getItem("USER_INFO");
   const {
@@ -63,11 +56,27 @@ const ItemIntroduction = () => {
     };
 
     fetchTravelItem();
+
+    return () => {};
   }, [params]);
 
   const handleBooking = (event) => {
     event.preventDefault();
-    console.log(travelerCountRef.current);
+
+    const currentTime = new Date();
+    const bookingNumber = generateID();
+
+    const booking = {
+      bookingDate: new Date(),
+      bookingNo: bookingNumber,
+      customerId: customerId,
+      packageId: travelItem.data.packageId,
+      travelerCount: parseInt(travelerCount),
+      tripTypeId: tripType,
+    };
+
+    const postBookingResult = postTravelPackage(booking);
+    console.log("postBookingResult:", postBookingResult);
   };
 
   console.log("travelItem:", travelItem.data);
@@ -111,14 +120,14 @@ const ItemIntroduction = () => {
                 </label>
               </div>
 
-              <div className={classes.formControl}>
+              {/* <div className={classes.formControl}>
                 <label for="travelPackage" style={{ marginRight: "4rem" }}>
                   Booking Number:
                 </label>
                 <label for="travelPackage" style={{ marginRight: "4rem" }}>
                   {generateID()}
                 </label>
-              </div>
+              </div> */}
 
               <div className={classes.formControl}>
                 <label for="lastName" style={{ marginRight: "2.8rem" }}>
@@ -127,8 +136,9 @@ const ItemIntroduction = () => {
                 <input
                   type="text"
                   name="travelCount"
-                  ref={travelerCountRef}
                   id="travelerCount"
+                  value={travelerCount}
+                  onChange={({ target }) => setTravelerCount(target.value)}
                 />
               </div>
 
@@ -136,7 +146,10 @@ const ItemIntroduction = () => {
                 <label for="tripType" style={{ marginRight: "4rem" }}>
                   Trip Type
                 </label>
-                <select id="tripType">
+                <select
+                  id="tripType"
+                  onChange={({ target }) => setTripType(target.value)}
+                >
                   <option value="B">Business</option>
                   <option value="G">Group</option>
                   <option value="L">Leisure</option>
@@ -148,7 +161,7 @@ const ItemIntroduction = () => {
                   Departure
                 </label>
                 <label for="travelPackage" style={{ marginRight: "4rem" }}>
-                  {travelItem.data.pkgStartDate}
+                  {travelItem.data ? travelItem.data.pkgStartDate : null}
                 </label>
               </div>
 
@@ -157,7 +170,7 @@ const ItemIntroduction = () => {
                   Return
                 </label>
                 <label for="travelPackage" style={{ marginRight: "4rem" }}>
-                  {travelItem.data.pkgEndDate}
+                  {travelItem.data ? travelItem.data.pkgEndDate : null}
                 </label>
                 <Button
                   type="submit"

@@ -1,54 +1,33 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserInfoContext } from "../form";
-import { Container, Row, Col, Alert } from "react-bootstrap";
-import { Typography } from "@material-ui/core";
+// import { UserInfoContext } from "../form";
+// import { Container, Row, Col, Alert } from "react-bootstrap";
+// import { Typography } from "@material-ui/core";
 
-import useStyles from "./styles";
-import { getAllBookings } from "../../api";
+// import useStyles from "./styles";
 
-const ProfileInfo = ({ children }) => {
-  //useContext
-  const test = useContext(UserInfoContext);
-  const classes = useStyles();
+const ProfileReservationHistory = ({ children }) => {
+  // //useContext
+  // const test = useContext(UserInfoContext);
 
-  const currentUser = localStorage.getItem("USER_INFO");
-  const {
-    customerId,
-    custEmail,
-    custFirstName,
-    custLastName,
-    custAddress,
-    custBusPhone,
-    custCity,
-    custCountry,
-    custPostal,
-    custProv,
-  } = JSON.parse(currentUser);
+  // const classes = useStyles();
 
-  //getbookings
-
-  useEffect(() => {
-    const fetchAllBookings = async () => {
-      const allbookings = await getAllBookings();
-
-      const bookingWithCustId = await allbookings.data.filter(
-        (data) =>
-          // data.custEmail.replace(/\s/g, "") ===
-          //   emailAddress.replace(/\s/g, "") &&
-          // data.custPassword.replace(/\s/g, "") === password.replace(/\s/g, "")
-          // console.log(customerId, data.bookingId, "hel")
-          customerId === data.customerId
-      );
-
-      console.log("bookingWithCustId:", bookingWithCustId);
-    };
-
-    fetchAllBookings();
-  }, []);
+  // const currentUser = localStorage.getItem("USER_INFO");
+  // const {
+  //   customerId,
+  //   custEmail,
+  //   custFirstName,
+  //   custLastName,
+  //   custAddress,
+  //   custBusPhone,
+  //   custCity,
+  //   custCountry,
+  //   custPostal,
+  //   custProv,
+  // } = JSON.parse(currentUser);
 
   return (
     <>
-      <Container fluid className={classes.root}>
+      {/* <Container fluid className={classes.root}>
         <Row>
           <Col className={classes.colBorder}>
             <Alert variant="primary" className={classes.colHeader}>
@@ -97,9 +76,9 @@ const ProfileInfo = ({ children }) => {
             </Alert>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 };
 
-export default ProfileInfo;
+export default ProfileReservationHistory;
